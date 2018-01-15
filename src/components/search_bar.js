@@ -11,13 +11,18 @@ class SearchBar extends Component {
   render() {
     //need to return JSX in the render() method
     return (
-      <div>
+      <div className="search-bar">
       <input
         value={this.state.term}
-        onChange={event => this.setState({ term: event.target.value })} />
+        onChange={event => this.onInputChange(event.target.value)} />
       </div>
     );
     //because we want this component to communicate with other components
+  }
+
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
 }
 
