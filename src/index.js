@@ -1,15 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+//This is ES6 code
+import React from 'react'; //from react folder
+import ReactDOM from 'react-dom'; //being splited to a diff library
 
-import App from './components/app';
-import reducers from './reducers';
+//if its our own file -> need to specify a specific
+import SearchBar from './components/search_bar';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const API_KEY = 'AIzaSyB8V-0a_7_MWeoa8YMKI-_Umh-VE_dVW6Y'
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+//Create a new component. This component should produce some HTML
+//Functional component
+const App = () => { // can use () => {
+  //ES6 syntax + React - const (declare var - final value)
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
+  //JSX - these cannot be intepreted by the browser -> need to compile
+}
+
+
+//Take this component's generated HTML and put it on the page (in the DOM)
+ReactDOM.render(<App />, document.querySelector('.container'));
+//Need to put all those components into a specific file -> containers
+//Need to make an instance of app <App />
